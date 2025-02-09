@@ -19,7 +19,7 @@ const Login: React.FC = () => {
     setIsLoading(true);
     try {
       // const response = await axios.post(`${BACKEND_URL}/auth/login`, { username, password });
-      const response = await axios.post(`/auth/login`, { username, password });
+      const response = await axios.post(`/api/auth/login`, { username, password });
       console.log(response.data); 
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userData', response.data.userData.username);
