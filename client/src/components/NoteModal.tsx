@@ -15,6 +15,8 @@ const NoteModal: React.FC<NoteModalProps> = ({ note, onClose }) => {
   const [image, setImage] = useState<File | null>(null);
   const token = localStorage.getItem("token");
 
+  console.log(image);
+
   const updateNote = async () => {
     try {
       await axios.put(

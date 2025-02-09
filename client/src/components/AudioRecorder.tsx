@@ -14,6 +14,8 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onSave }) => {
   const audioChunksRef = useRef<Blob[]>([]);
   const transcriptRef = useRef(''); // Store transcript persistently
 
+  console.log(transcript);
+
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -45,13 +47,13 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({ onSave }) => {
         return;
       }
 
-      const SpeechRecognition = window.SpeechRecognition || (window as any).webkitSpeechRecognition;
+      const SpeechRecognition = (window as any).webkitSpeechRecognition;
       const recognition = new SpeechRecognition();
       recognition.lang = 'en-US';
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
 
-      recognition.onresult = (event: SpeechRecognitionEvent) => {
+      recognition.onresult = (event: any) => {
         const result = event.results[0][0].transcript;
         setTranscript(result);
         transcriptRef.current = result; // Store transcript in ref
