@@ -37,7 +37,8 @@ const Dashboard: React.FC = () => {
       const response = await axios.get(`${BACKEND_URL}/notes`, {
         headers: { Authorization: token as string },
       });
-      setNotes(response.data);
+      console.log(response?.data)
+      setNotes(response?.data);
     } catch (error) {
       toast.error("Error fetching notes. Please try again later.");
     } finally {
@@ -60,8 +61,8 @@ const Dashboard: React.FC = () => {
 
   const filteredNotes = sortedNotes.filter((note) => {
     const matchesSearch =
-      note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      note.content.toLowerCase().includes(searchTerm.toLowerCase());
+      note?.title?.toLowerCase().includes(searchTerm?.toLowerCase()) ||
+      note?.content?.toLowerCase().includes(searchTerm?.toLowerCase());
     return showFavorites ? note.isFavorite && matchesSearch : matchesSearch;
   });
 
