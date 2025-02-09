@@ -76,16 +76,6 @@ npm run dev
 ```
 The frontend will be available at `http://localhost:5173`
 
-## Deployment
-### Build Frontend
-```sh
-cd client
-npm run build
-```
-
-### Deploy Backend
-Use services like **Vercel, Render, or Railway** for deployment.
-
 ## Tech Stack
 - **Frontend**: Next.js/React, Tailwind CSS, React Hook Form
 - **Backend**: Node.js, Express, MongoDB, Mongoose
