@@ -22,7 +22,7 @@ const Signup: React.FC = () => {
       return;
     }
     setIsLoading(true);
-    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+    const BACKEND_URL = '/api';
     try {
       await axios.post(`${BACKEND_URL}/auth/signup`, {
         username,

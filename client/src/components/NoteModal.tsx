@@ -20,7 +20,7 @@ const NoteModal: React.FC<NoteModalProps> = ({ note, onClose }) => {
   const updateNote = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/notes/${note._id}`,
+        `/api/notes/${note._id}`,
         { title, content, isFavorite },
         { headers: { Authorization: token as string } }
       );

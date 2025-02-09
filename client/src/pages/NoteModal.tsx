@@ -84,7 +84,7 @@ const NoteModal: React.FC<NoteModalProps> = ({ note, onClose, onUpdate, onDelete
     formData.append("content", note.content);
     formData.append("type", note.type);
 
-    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+    const BACKEND_URL = '/api';
   
     try {
       const { data } = await axios.post(`${BACKEND_URL}/notes/create-note`, formData, {

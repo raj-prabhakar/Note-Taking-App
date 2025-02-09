@@ -30,7 +30,7 @@ const Dashboard: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
 
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const BACKEND_URL = '/api';
 
   const fetchNotes = async () => {
     try {

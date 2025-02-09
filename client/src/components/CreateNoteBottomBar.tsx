@@ -13,7 +13,7 @@ const CreateNoteBottomBar: React.FC<CreateNoteBottomBarProps> = ({
   onShowCreateModal,
   fetchNotes,
 }) => {
-  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const BACKEND_URL = '/api';
   const handleSaveAudio = async (audioBlob: Blob, transcript: string) => {
     try {
       const formData = new FormData();

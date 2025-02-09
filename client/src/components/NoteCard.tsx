@@ -16,7 +16,7 @@ const NoteCard: React.FC<NoteCardProps> = ({ note, onClick, refreshNotes }) => {
         alert('Note content copied to clipboard!');
     };
 
-    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+    const BACKEND_URL = '/api';
 
     const deleteNote = async (e: React.MouseEvent) => {
         e.stopPropagation();
