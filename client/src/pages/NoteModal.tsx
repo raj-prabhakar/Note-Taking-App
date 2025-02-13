@@ -116,6 +116,7 @@ const NoteModal: React.FC<NoteModalProps> = ({ note, onClose, onUpdate, onDelete
   
 
   const handleToggleFavorite = async () => {
+    setLoading(true);
     try {
       const newFavoriteStatus = !isFavorite
       setIsFavorite(newFavoriteStatus)
@@ -123,6 +124,8 @@ const NoteModal: React.FC<NoteModalProps> = ({ note, onClose, onUpdate, onDelete
     } catch (error) {
       setIsFavorite(isFavorite) // Revert on error
       toast.error("Failed to update favorite status")
+    } finally{
+      setLoading(false);
     }
   }
 

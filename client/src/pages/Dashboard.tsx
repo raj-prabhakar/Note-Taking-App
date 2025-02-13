@@ -33,6 +33,7 @@ const Dashboard: React.FC = () => {
   const BACKEND_URL = '/api';
 
   const fetchNotes = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(`${BACKEND_URL}/notes`, {
         headers: { Authorization: token as string },
@@ -42,6 +43,7 @@ const Dashboard: React.FC = () => {
     } catch (error) {
       toast.error("Error fetching notes. Please try again later.");
     } finally {
+      setLoading(false);
     }
   };
 
@@ -67,6 +69,7 @@ const Dashboard: React.FC = () => {
   });
 
   const handleUpdateNote = async (noteId: string, updates: Partial<Note>) => {
+    setLoading(true);
     try {
       await axios.put(`${BACKEND_URL}/notes/${noteId}`, updates, {
         headers: { Authorization: token as string },
@@ -75,6 +78,7 @@ const Dashboard: React.FC = () => {
     } catch (error) {
       toast.error("Error updating note");
     } finally {
+      setLoading(false);
     }
   };
 
